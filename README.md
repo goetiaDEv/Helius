@@ -5,7 +5,7 @@
 ██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║
 ██║  ██║███████╗███████╗██║╚██████╔╝███████║
 ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝
-                                             ```
+```
                                             
 [![.NET](https://img.shields.io/badge/.NET-8.0-blueviolet)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
