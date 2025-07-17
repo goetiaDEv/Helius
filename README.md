@@ -100,10 +100,10 @@ Console.WriteLine($"Iniciando varredura completa em {targetIp}...");
 
 - [x] Descoberta de hosts via ICMP  
 - [x] Varredura de portas TCP  
-- [x] Captura de banner  
+- [x] Captura de banner
+- [ ] Interface gráfica multiplataforma (under development)   
 - [ ] Análise automatizada de CVEs  
-- [ ] Exportação de resultados (JSON/CSV)  
-- [ ] Interface gráfica multiplataforma (preview futuro)  
+- [ ] Exportação de resultados (JSON/CSV)   
 
 ---
 
