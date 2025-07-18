@@ -1,7 +1,0 @@
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Helius.Avalonia.csproj.AssemblyReference.cache
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Helius.Avalonia.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Helius.Avalonia.AssemblyInfoInputs.cache
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Helius.Avalonia.AssemblyInfo.cs
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Helius.Avalonia.csproj.CoreCompileInputs.cache
-C:\Users\nohat\Documents\Helius\Helius.Avalonia\obj\Debug\net8.0\Helius.Avalonia.sourcelink.json
