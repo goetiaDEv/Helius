@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Helius.Avalonia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01affd3ffc7e1c062b5494ebb71fb86dad9e4058")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2098552bfa6d53d0dd87f18bc3f1f1c6cb579824")]
 [assembly: System.Reflection.AssemblyProductAttribute("Helius.Avalonia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Helius.Avalonia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
