@@ -1,7 +1,9 @@
-
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Helius.Core
 {
@@ -12,45 +14,75 @@ namespace Helius.Core
         public CveChecker()
         {
             _httpClient = new HttpClient();
-            // Adicionar um User-Agent é uma boa prática
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "Helius/1.0");
         }
 
-        public async Task CheckVulnerabilitiesAsync(string product, string version)
+        public async Task<List<string>> CheckVulnerabilitiesAsync(string product, string version, CancellationToken cancellationToken = default)
         {
-            // API pública do cve.circl.lu para pesquisa
+            var cveList = new List<string>();
             string apiUrl = $"https://cve.circl.lu/api/search/{product}/{version}";
-            
-            Console.WriteLine($"  [CVE] Consultando vulnerabilidades para {product} versão {version}...");
 
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
+                var response = await _httpClient.GetAsync(apiUrl, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    // Em um projeto real, você usaria uma biblioteca como Newtonsoft.Json para deserializar
-                    // e exibir os resultados de forma estruturada.
+                    
                     if (jsonResponse.Length > 2) // Resposta vazia é "[]"
                     {
-                        Console.WriteLine($"    [ALERTA] Vulnerabilidades encontradas! Verifique os detalhes em: {apiUrl}");
+                        try
+                        {
+                            var cveData = JsonConvert.DeserializeObject<List<CveItem>>(jsonResponse);
+                            if (cveData != null)
+                            {
+                                foreach (var cve in cveData)
+                                {
+                                    if (!string.IsNullOrEmpty(cve.Id))
+                                    {
+                                        cveList.Add(cve.Id);
+                                    }
+                                }
+                            }
+                        }
+                        catch (JsonException)
+                        {
+                            // Em caso de erro no parsing JSON, adiciona indicação genérica
+                            cveList.Add("Vulnerabilidades detectadas - consulte API");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("    [OK] Nenhuma CVE encontrada na base de dados para esta versão.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"    [AVISO] A consulta à API de CVEs falhou com o status: {response.StatusCode}");
                 }
             }
-            catch (HttpRequestException ex)
+            catch (HttpRequestException)
             {
-                Console.WriteLine($"    [ERRO] Falha ao conectar à API de CVEs: {ex.Message}");
+                // Falha na conexão com a API
             }
+            catch (OperationCanceledException)
+            {
+                // Operação cancelada
+            }
+
+            return cveList;
+        }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
         }
     }
+
+    public class CveItem
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; } = "";
+
+        [JsonProperty("summary")]
+        public string Summary { get; set; } = "";
+
+        [JsonProperty("Published")]
+        public string Published { get; set; } = "";
+
+        [JsonProperty("cvss")]
+        public double Cvss { get; set; }
+    }
 }
-
-

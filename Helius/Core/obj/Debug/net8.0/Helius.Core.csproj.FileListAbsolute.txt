@@ -1,0 +1,13 @@
+C:\Users\nohat\Documents\Helius\Helius\Core\bin\Debug\net8.0\Helius.Core.deps.json
+C:\Users\nohat\Documents\Helius\Helius\Core\bin\Debug\net8.0\Helius.Core.dll
+C:\Users\nohat\Documents\Helius\Helius\Core\bin\Debug\net8.0\Helius.Core.pdb
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.csproj.AssemblyReference.cache
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.AssemblyInfoInputs.cache
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.AssemblyInfo.cs
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.csproj.CoreCompileInputs.cache
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.sourcelink.json
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.dll
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\refint\Helius.Core.dll
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\Helius.Core.pdb
+C:\Users\nohat\Documents\Helius\Helius\Core\obj\Debug\net8.0\ref\Helius.Core.dll

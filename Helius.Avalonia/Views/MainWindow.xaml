@@ -1,0 +1,122 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Helius.Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+        x:Class="Helius.Avalonia.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Helius Scanner - Network Vulnerability Scanner"
+        Width="1200" Height="800"
+        MinWidth="900" MinHeight="600"
+        Icon="/Assets/avalonia-logo.ico"
+        Background="#1a1a1a">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#2d2d2d" BorderBrush="#404040" BorderThickness="0,0,0,1" Padding="20">
+            <StackPanel>
+                <TextBlock Text="⚡ Helius Scanner" Classes="header" HorizontalAlignment="Center" />
+                <TextBlock Text="Network Vulnerability Scanner" FontSize="14" Foreground="#cccccc" HorizontalAlignment="Center" Margin="0,5,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel - Configuration -->
+            <Border Grid.Column="0" Background="#2d2d2d" BorderBrush="#404040" BorderThickness="1" Padding="20" Margin="0,0,10,0">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock Text="Configuração da Varredura" Classes="subheader" />
+
+                        <!-- Target Configuration -->
+                        <TextBlock Text="Configuração do Alvo" FontWeight="SemiBold" Foreground="#ffffff" Margin="0,15,0,5" />
+                        
+                        <CheckBox x:Name="HostDiscoveryCheckBox" 
+                                  Content="Descoberta de Hosts" 
+                                  IsChecked="{Binding IsHostDiscoveryEnabled}" 
+                                  Margin="0,5" />
+
+                        <TextBlock Text="Base da Sub-rede:" Foreground="#cccccc" Margin="0,10,0,5" />
+                        <TextBox Text="{Binding SubnetBase}" 
+                                 Watermark="192.168.1" 
+                                 IsEnabled="{Binding IsHostDiscoveryEnabled}"
+                                 Margin="0,0,0,10" />
+
+                        <TextBlock Text="IP do Alvo:" Foreground="#cccccc" Margin="0,5,0,5" />
+                        <TextBox Text="{Binding TargetIp}" 
+                                 Watermark="127.0.0.1" 
+                                 IsEnabled="{Binding !IsHostDiscoveryEnabled}"
+                                 Margin="0,0,0,10" />
+
+                        <TextBlock Text="Portas para Escanear:" Foreground="#cccccc" Margin="0,5,0,5" />
+                        <TextBox Text="{Binding PortsToScan}" 
+                                 Watermark="21,22,80,443,3306,8080" 
+                                 Margin="0,0,0,15" />
+
+                        <!-- Scan Controls -->
+                        <TextBlock Text="Controles da Varredura" FontWeight="SemiBold" Foreground="#ffffff" Margin="0,15,0,5" />
+                        
+                        <Button Content="Iniciar Varredura" 
+                                Command="{Binding StartScanCommand}" 
+                                Classes="primary" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="0,5" />
+
+                        <Button Content="Parar Varredura" 
+                                Command="{Binding StopScanCommand}" 
+                                Classes="danger" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="0,5" />
+
+                        <Button Content="Limpar Resultados" 
+                                Command="{Binding ClearResultsCommand}" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="0,5" />
+
+                        <Button Content="Limpar Console" 
+                                Command="{Binding ClearConsoleCommand}" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="0,5" />
+
+                        <!-- Progress -->
+                        <TextBlock Text="Progresso" FontWeight="SemiBold" Foreground="#ffffff" Margin="0,20,0,5" />
+                        <ProgressBar Value="{Binding ScanProgress}" Maximum="100" Height="20" Margin="0,5" />
+                        <TextBlock Text="{Binding ScanStatus}" Foreground="#cccccc" FontSize="12" Margin="0,5" />
+
+                        <!-- Quick Stats -->
+                        <TextBlock Text="Estatísticas Rápidas" FontWeight="SemiBold" Foreground="#ffffff" Margin="0,20,0,5" />
+                        <TextBlock Text="{Binding ScanResults.Count, StringFormat='Resultados: {0}'}" Foreground="#cccccc" FontSize="12" />
+                        <TextBlock Text="{Binding ScanResults.Count, StringFormat='Portas Abertas: {0}'}" Foreground="#cccccc" FontSize="12" />
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- Right Panel - Results and Console -->
+            <Grid Grid.Column="1" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="300" />
+                </Grid.RowDefinitions>
+
+                <!-- Results Panel -->
+                <Border Grid.Row="0" Background="#2d2d2d" BorderBrush="#404040" BorderThickness="1" Padding="20" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height
