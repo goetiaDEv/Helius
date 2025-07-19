@@ -15,25 +15,25 @@ Helius é uma poderosa ferramenta de linha de comando desenvolvida em **C#** par
 
 ---
 
-## 🧠 Principais Funcionalidades
+## Principais Funcionalidades
 
 O scanner Helius é modular, dividido nos seguintes componentes:
 
-1. 🔎 **Descoberta de Hosts**  
+1.  **Descoberta de Hosts**  
    Detecta dispositivos ativos em uma sub-rede via pacotes ICMP (Ping).
 
-2. 🔓 **Varredura de Portas**  
+2.  **Varredura de Portas**  
    Identifica portas TCP abertas em um host específico.
 
-3. 🏷️ **Captura de Banner**  
+3.  **Captura de Banner**  
    Coleta informações dos serviços rodando nas portas abertas (como versão e nome).
 
-4. 🧩 **Análise de CVEs** *(em progresso)*  
+4.  **Análise de CVEs** *(em progresso)*  
    Compara os dados coletados com bases públicas de vulnerabilidades conhecidas (CVE).
 
 ---
 
-## 🧰 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```bash
 Helius/
@@ -53,14 +53,14 @@ Helius/
 
 ---
 
-## 🚀 Como Compilar e Executar
+##  Como Executar
 
-### ✅ Pré-requisitos
+###  Pré-requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download)
 - Um editor como [Visual Studio Code](https://code.visualstudio.com/) ou [Visual Studio](https://visualstudio.microsoft.com/)
 
-### ▶️ Passos
+###  Passos
 
 ```bash
 # 1. Clone o repositório
@@ -74,11 +74,11 @@ dotnet build
 dotnet run
 ```
 
-*⚙️ Dica: personalize o arquivo `Program.cs` para definir os alvos da varredura.*
+* Dica: personalize o arquivo `Program.cs` para definir os alvos da varredura.*
 
 ---
 
-## 🧪 Exemplo de Uso
+##  Exemplo de Uso
 
 Dentro do `Program.cs`:
 
@@ -93,7 +93,7 @@ Console.WriteLine($"Iniciando varredura completa em {targetIp}...");
 
 ---
 
-## ⚠️ Aviso Legal
+##  Aviso Legal
 
 > Esta ferramenta é **exclusivamente para fins educacionais**.  
 > Utilize-a **apenas em redes que você possui ou tem permissão explícita para testar**.  
@@ -102,7 +102,7 @@ Console.WriteLine($"Iniciando varredura completa em {targetIp}...");
 
 ---
 
-## 📌 Roadmap (em construção)
+##  Roadmap (Verifique o arquivo todo)
 
 - [x] Descoberta de hosts via ICMP  
 - [x] Varredura de portas TCP  
@@ -110,12 +110,6 @@ Console.WriteLine($"Iniciando varredura completa em {targetIp}...");
 - [ ] Interface gráfica multiplataforma (under development)   
 - [ ] Análise automatizada de CVEs  
 - [ ] Exportação de resultados (JSON/CSV)   
-
----
-
-## 📬 Contribuições
-
-Sinta-se à vontade para abrir *issues*, *pull requests* ou sugerir melhorias! Toda ajuda é bem-vinda nessa jornada de aprendizado e segurança.
 
 ---
 
