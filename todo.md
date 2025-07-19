@@ -10,6 +10,7 @@ Este documento lista as funcionalidades atuais do Helius e as próximas etapas p
 - [x] **Verificação de CVEs (Básica)**: Comparação de versões de serviços com APIs de vulnerabilidades (ex: cve.circl.lu).
 - [x] **Estrutura de Projeto C#**: Organização do código em classes e namespaces para modularidade.
 - [x] **README.md**: Documentação inicial do projeto para GitHub.
+- [x] **Interface Gráfica utilizando o Avalonia UI: Impletada a interface gráfica para facilitar a visualização dos dados e funções.
 
 ## Próximas Atualizações e Melhorias (Roadmap)
 
