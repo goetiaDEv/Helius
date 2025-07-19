@@ -1,0 +1,13 @@
+/home/ubuntu/Helius_project/Helius/Helius/Core/bin/Debug/net8.0/Helius.Core.deps.json
+/home/ubuntu/Helius_project/Helius/Helius/Core/bin/Debug/net8.0/Helius.Core.dll
+/home/ubuntu/Helius_project/Helius/Helius/Core/bin/Debug/net8.0/Helius.Core.pdb
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.csproj.AssemblyReference.cache
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.AssemblyInfoInputs.cache
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.AssemblyInfo.cs
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.csproj.CoreCompileInputs.cache
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.sourcelink.json
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.dll
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/refint/Helius.Core.dll
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/Helius.Core.pdb
+/home/ubuntu/Helius_project/Helius/Helius/Core/obj/Debug/net8.0/ref/Helius.Core.dll

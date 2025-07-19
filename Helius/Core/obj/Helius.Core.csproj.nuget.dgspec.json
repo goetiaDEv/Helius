@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nohat\\Documents\\Helius\\Helius\\Core\\Helius.Core.csproj": {}
+    "/home/ubuntu/Helius_project/Helius/Helius/Core/Helius.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nohat\\Documents\\Helius\\Helius\\Core\\Helius.Core.csproj": {
+    "/home/ubuntu/Helius_project/Helius/Helius/Core/Helius.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nohat\\Documents\\Helius\\Helius\\Core\\Helius.Core.csproj",
+        "projectUniqueName": "/home/ubuntu/Helius_project/Helius/Helius/Core/Helius.Core.csproj",
         "projectName": "Helius.Core",
-        "projectPath": "C:\\Users\\nohat\\Documents\\Helius\\Helius\\Core\\Helius.Core.csproj",
-        "packagesPath": "C:\\Users\\nohat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nohat\\Documents\\Helius\\Helius\\Core\\obj\\",
+        "projectPath": "/home/ubuntu/Helius_project/Helius/Helius/Core/Helius.Core.csproj",
+        "packagesPath": "/home/ubuntu/.nuget/packages/",
+        "outputPath": "/home/ubuntu/Helius_project/Helius/Helius/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nohat\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/ubuntu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -60,26 +54,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.18, 8.0.18]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.18, 8.0.18]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.18, 8.0.18]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.117/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

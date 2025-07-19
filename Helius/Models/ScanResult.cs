@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Helius.Core.Models
+namespace Helius.Models
 {
     public class ScanResult
     {

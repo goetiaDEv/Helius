@@ -101,8 +101,8 @@
 
                         <!-- Quick Stats -->
                         <TextBlock Text="Estatísticas Rápidas" FontWeight="SemiBold" Foreground="#ffffff" Margin="0,20,0,5" />
-                        <TextBlock Text="{Binding ScanResults.Count, StringFormat='Resultados: {0}'}" Foreground="#cccccc" FontSize="12" />
-                        <TextBlock Text="{Binding ScanResults.Count, StringFormat='Portas Abertas: {0}'}" Foreground="#cccccc" FontSize="12" />
+                        <TextBlock Text="{Binding ScanResults.Count, StringFormat=\'Resultados: {0}\'}" Foreground="#cccccc" FontSize="12" />
+                        <TextBlock Text="{Binding ScanResults.Count, StringFormat=\'Portas Abertas: {0}\'}" Foreground="#cccccc" FontSize="12" />
 
                     </StackPanel>
                 </ScrollViewer>
@@ -119,4 +119,104 @@
                 <Border Grid.Row="0" Background="#2d2d2d" BorderBrush="#404040" BorderThickness="1" Padding="20" Margin="0,0,0,10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Resultados da Varredura" Classes="subheader" Margin="0,0,0,10" />
+                        <DataGrid Grid.Row="1" ItemsSource="{Binding ScanResults}" IsReadOnly="True" 
+                                  BorderBrush="#404040" BorderThickness="1" Background="#1a1a1a">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Host" Binding="{Binding Host}" Width="*" />
+                                <DataGridTextColumn Header="Porta" Binding="{Binding Port}" Width="Auto" />
+                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="Auto" />
+                                <DataGridTextColumn Header="Serviço" Binding="{Binding Service}" Width="*" />
+                                <DataGridTextColumn Header="Banner" Binding="{Binding Banner}" Width="2*" />
+                                <DataGridTextColumn Header="Vulnerabilidades" Binding="{Binding VulnerabilitiesText}" Width="3*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+
+                <!-- Console Output -->
+                <Border Grid.Row="1" Background="#2d2d2d" BorderBrush="#404040" BorderThickness="1" Padding="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Saída do Console" Classes="subheader" Margin="0,0,0,10" />
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <TextBlock Text="{Binding ConsoleOutput}" 
+                                       FontFamily="Cascadia Code, Consolas, Monospace" 
+                                       FontSize="12" 
+                                       Foreground="#cccccc" 
+                                       TextWrapping="Wrap" />
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- Footer -->
+        <Border Grid.Row="2" Background="#2d2d2d" BorderBrush="#404040" BorderThickness="0,1,0,0" Padding="10">
+            <TextBlock Text="Helius Scanner v1.0 - Desenvolvido para fins educacionais." 
+                       HorizontalAlignment="Center" 
+                       Foreground="#999999" 
+                       FontSize="10" />
+        </Border>
+    </Grid>
+
+    <Window.Styles>
+        <StyleInclude Source="avares://Avalonia.Themes.Fluent/Fluent.xaml" />
+        <StyleInclude Source="avares://Avalonia.Themes.Fluent/FluentTheme.xaml" />
+
+        <!-- Custom Styles -->
+        <Style Selector="TextBlock.header">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#00bfff" />
+        </Style>
+        <Style Selector="TextBlock.subheader">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#00bfff" />
+        </Style>
+        <Style Selector="Button.primary">
+            <Setter Property="Background" Value="#007bff" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#007bff" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+        <Style Selector="Button.primary:pointerover">
+            <Setter Property="Background" Value="#0056b3" />
+        </Style>
+        <Style Selector="Button.danger">
+            <Setter Property="Background" Value="#dc3545" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#dc3545" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+        <Style Selector="Button.danger:pointerover">
+            <Setter Property="Background" Value="#bd2130" />
+        </Style>
+        <Style Selector="TextBox, ComboBox, CheckBox">
+            <Setter Property="Background" Value="#3a3a3a" />
+            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="BorderBrush" Value="#555555" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+        <Style Selector="TextBox:focus, ComboBox:focus">
+            <Setter Property="BorderBrush" Value="#00bfff" />
+        </Style>
+        <Style Selector="ProgressBar">
+            <Setter Property="Background" Value="#3a3a3a" />
+            <Setter Property="Foreground" Value="#00bfff" />
+            <Setter Property="BorderBrush" Value="#555555" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+    </Window.Styles>
+</Window>

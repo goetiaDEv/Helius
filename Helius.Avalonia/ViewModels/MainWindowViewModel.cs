@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ReactiveUI;
 using Helius.Core;
-using Helius.Core.Models;
+using Helius.Models;
 
 namespace Helius.Avalonia.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
+public class MainWindowViewModel : ReactiveObject
 {
     private readonly HostDiscoverer _hostDiscoverer;
     private readonly PortScanner _portScanner;
@@ -183,12 +184,12 @@ public class MainWindowViewModel : ViewModelBase
                         AppendToConsole($"  [INFO] Banner: {banner}", ConsoleMessageType.Info);
                         
                         var productInfo = ExtractProductInfo(banner);
-                        if (productInfo != null)
+                        if (productInfo.HasValue)
                         {
-                            var cves = await _cveChecker.CheckVulnerabilitiesAsync(productInfo.Product, productInfo.Version, _cancellationTokenSource.Token);
+                            var cves = await _cveChecker.CheckVulnerabilitiesAsync(productInfo.Value.Product, productInfo.Value.Version, _cancellationTokenSource.Token);
                             result.Vulnerabilities.AddRange(cves);
                             
-                            if (cves.Count > 0)
+                            if (cves.Any())
                             {
                                 AppendToConsole($"  [ALERTA] {cves.Count} vulnerabilidades encontradas!", ConsoleMessageType.Error);
                             }
@@ -264,7 +265,8 @@ public class MainWindowViewModel : ViewModelBase
     private List<int> ParsePorts(string portsString)
     {
         var ports = new List<int>();
-        var parts = portsString.Split(',', StringSplitOptions.RemoveEmptyEntries);
+        var parts = portsString.Split(new char[] { 
+',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
         
         foreach (var part in parts)
         {
@@ -302,10 +304,10 @@ public class MainWindowViewModel : ViewModelBase
 
     private (string Product, string Version)? ExtractProductInfo(string banner)
     {
-        var parts = banner.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = banner.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length > 0)
         {
-            var productInfo = parts[0].Split('/');
+            var productInfo = parts[0].Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
             if (productInfo.Length == 2)
             {
                 return (productInfo[0], productInfo[1]);
@@ -333,3 +335,6 @@ public class ScanResultItem
     public List<string> Vulnerabilities { get; set; } = new();
     public string VulnerabilitiesText => Vulnerabilities.Count > 0 ? string.Join(", ", Vulnerabilities) : "Nenhuma";
 }
+
+
+
